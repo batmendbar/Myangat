@@ -1,7 +1,22 @@
+.entire-container{
+  height: 100vh;
+}
+
+#sidebar-and-container{
+  flex-grow: 1;
+}
+
 .flex-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+header{
+	display: flex;
+	justify-content: space-around;
+	background-color: #C09F80;
+	text-align: center;
 }
 
 footer {
