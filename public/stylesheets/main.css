@@ -1,0 +1,12 @@
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 3px solid gold; */
+}
+
+footer {
+  text-align: center;
+  flex-grow: 0;
+  background-color: #C09F80;
+}
