@@ -1,5 +1,38 @@
 <div id="sidebar-and-container">
-    <% airbnb_list.forEach(airbnb => { %>
-        <p> <%= airbnb.listing_url %> </p>
+    <% class_list.forEach(division => { %>
+        
+        <p> <%= division.competitionName %> 
+            <%= division.year %>:  
+            <%= division.division %></p>
+
+        <table>
+            <tr>
+                <th>Байр</th>
+                <th>Нэр</th>
+                <th>Сургууль</th>
+                <th>Бүс</th> 
+                <% for (let i = 1; i <= division.firstDayProblemCount; i++) { %>
+                    <th>A<%= i %> </th>
+                <% } %> 
+                <% for (let i = 1; i <= division.secondDayProblemCount; i++) { %>
+                    <th><%= i %> </th>
+                <% } %> 
+            </tr>
+
+            <tr>
+            <% division.performances.forEach(performance => { %>
+                <td><%= performance.rank %></td>
+                <td><%= performance.name %></td>
+                <td><%= performance.school %></td>
+                <td><%= performance.region %></td>
+                <% for (let i = 0; i < division.firstDayProblemCount; i++) { %>
+                    <td><%= performance.firstDayScores[i] %></td>
+                <% } %> 
+                <% for (let i = 0; i < division.seconDayProblemCount; i++) { %>
+                    <td><%= performance.seconDayScores[i] %></td>
+                <% } %> 
+            <% }) %>
+            </tr>
+        </table>
     <% }) %>
 </div>
