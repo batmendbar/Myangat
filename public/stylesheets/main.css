@@ -1,5 +1,5 @@
 .entire-container{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #sidebar-and-container{
@@ -27,5 +27,5 @@ footer {
 
 table, th, td {
   border: 1px solid black;
-  padding: 10px;
+  padding: 1px;
 }
