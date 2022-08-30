@@ -24,19 +24,28 @@ const competitionDivisionSchema = {
   performances: [performanceSchema]
 }
 
+const app = express()
+
+app
+.use(express.static(path.join(__dirname, 'public')))
+.set('views', path.join(__dirname, 'views'))
+.set('view engine', 'ejs')
+.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 const Class = mongoose.model('class', competitionDivisionSchema)
 
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => {
-    Class.find({}, function(err, classes) {
-      console.log(classes)
-      res.render('pages/index', {
-          class_list: classes
-      })
+app.get('/', (req, res) => {
+  Class.find({}, function(err, classes) {
+    res.render('pages/competitions', {
+        class_list: classes
     })
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+})
+
+app.get('/:competitionName', (req, res) => {
+  Class.find({"competitionName": req.params.competitionName}, function(err, classes) {
+    res.render('pages/index', {
+        class_list: classes
+    })
+  })
+})
