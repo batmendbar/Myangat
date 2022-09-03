@@ -3,3 +3,4 @@ node_modules
 
 # Local development
 .DS_Store
+.vscode

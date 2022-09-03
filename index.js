@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
 
 const performanceSchema = {
+  rank: String,
   name: String, 
   grade: String, 
   school: String,
@@ -18,8 +19,8 @@ const divisionResultSchema = {
   competitionName: String, 
   year: String, 
   division: String,
-  firstDayProblemCount: Number, 
-  secondDayProblemCount: Number,
+  dayOneProblemCount: Number, 
+  dayTwoProblemCount: Number,
   performances: [performanceSchema]
 }
 

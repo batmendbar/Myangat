@@ -1,3 +1,26 @@
-<% division_results.performances.forEach(performance => { %>
-    <p> <%= performance.name %> </p>
-<% }) %>
+<table>
+    <tr>
+        <th>Байр</th>
+        <th>Нэр</th>
+        <th>Анги</th>
+        <% for(let i = 1; i <= division_results.dayOneProblemCount; i++) { %>
+            <th> А<%= i %> </th>
+        <% } %>
+        <% for(let i = 1; i <= division_results.dayTwoProblemCount; i++) { %>
+            <th> Б<%= i %> </th>
+        <% } %>
+    </tr>
+    <% division_results.performances.forEach(performance => { %>
+        <tr>
+            <td><%= performance.rank %></td>
+            <td><%= performance.name %></td>
+            <td><%= performance.grade %></td>
+            <% performance.dayOneScores.forEach(score => { %>
+                <td><%= score %></td>
+            <% }) %>
+            <% performance.dayTwoScores.forEach(score => { %>
+                <td><%= score %></td>
+            <% }) %>
+        </tr>
+    <% }) %>
+</table>
