@@ -5,7 +5,6 @@ import mongoose from 'mongoose'
 const PORT = process.env.PORT || 3000
 import {divisionResultSchema} from "./models.js"
 
-mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
 
 const app = express()
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +16,11 @@ app
 .set('view engine', 'ejs')
 .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+
+mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
+
 const DivisionResult = mongoose.model('divisionResult', divisionResultSchema)
+
 
 app.get('/find_division_results/:competitionName/:year/:division/', (req, res) => {
   DivisionResult.findOne({
