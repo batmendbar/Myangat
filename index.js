@@ -6,23 +6,27 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
 
 const performanceSchema = {
-  rank: Number, 
-  name: String,
+  name: String, 
+  grade: String, 
   school: String,
-  grade: String,  
-  region: String,  
-  firstDayScores: [Number],
-  secondDayScores: [Number]
+  region: String,
+  dayOneScores: [Number],
+  dayTwoScores: [Number]
 }
 
-const competitionDivisionSchema = {
-  competitionName: String,
-  yearHeld: Number,
+const divisionResultSchema = {
+  competitionName: String, 
+  year: String, 
   division: String,
-  firstDayProblemCount: Number,
+  firstDayProblemCount: Number, 
   secondDayProblemCount: Number,
   performances: [performanceSchema]
 }
+
+// const competitionSchema = {
+//   competitionName: String,
+//   instances: []
+// }
 
 const app = express()
 
@@ -32,20 +36,26 @@ app
 .set('view engine', 'ejs')
 .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-const Class = mongoose.model('class', competitionDivisionSchema)
+const DivisionResult = mongoose.model('divisionResult', divisionResultSchema)
 
-app.get('/', (req, res) => {
-  Class.find({}, function(err, classes) {
-    res.render('pages/competitions', {
-        class_list: classes
-    })
-  })
-})
+// app.get('/', (req, res) => {
+//   Competition.find({}, function(err, classes) {
+//     res.render('pages/competitions', {
+//         class_list: classes
+//     })
+//   })
+// })
 
-app.get('/:competitionName', (req, res) => {
-  Class.find({"competitionName": req.params.competitionName}, function(err, classes) {
-    res.render('pages/index', {
-        class_list: classes
+app.get('/find_division_results/:competitionName/:year/:division/', (req, res) => {
+  DivisionResult.findOne({
+      // "competitionName": req.params.competitionName,
+      // "year": req.params.year,
+      // "division": req.params.division
+    }, 
+    function(err, division_results) {
+      console.log(division_results);
+      res.render('pages/division_results', {
+          division_results: division_results
+      })
     })
-  })
 })
