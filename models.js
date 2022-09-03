@@ -1,26 +1,18 @@
-{
-    name: "Улсын Математикийн Олимпиад",
-    instances: [
-        {
-            year: "2017",
-            divisions: [
-                {
-                    division: "12-р анги",
-                    firstDayProblemCount: Number,
-                    secondDayProblemCount: Number,
-                    performances: [
-                        {
-                            rank: Number, 
-                            name: String,
-                            grade: String,  
-                            region: String,  
-                            school: String,
-                            firstDayScores: [Number],
-                            secondDayScores: [Number]
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+export const performanceSchema = {
+    rank: String,
+    name: String, 
+    grade: String, 
+    school: String,
+    region: String,
+    dayOneScores: [Number],
+    dayTwoScores: [Number]
+}
+
+export const divisionResultSchema = {
+    competitionName: String, 
+    year: String, 
+    division: String,
+    dayOneProblemCount: Number, 
+    dayTwoProblemCount: Number,
+    performances: [performanceSchema]
 }

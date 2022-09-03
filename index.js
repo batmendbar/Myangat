@@ -1,28 +1,17 @@
-const express = require('express')
-const path = require('path')
+// import { parse } from 'node-html-parser';
+import express from 'express'
+import path from 'path'
+import { fileURLToPath } from 'url';
+import mongoose from 'mongoose'
+// const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3000
-const mongoose = require('mongoose');
+import {performanceSchema} from "./models.js"
+import {divisionResultSchema} from "./models.js"
+
 
 mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
 
-const performanceSchema = {
-  rank: String,
-  name: String, 
-  grade: String, 
-  school: String,
-  region: String,
-  dayOneScores: [Number],
-  dayTwoScores: [Number]
-}
 
-const divisionResultSchema = {
-  competitionName: String, 
-  year: String, 
-  division: String,
-  dayOneProblemCount: Number, 
-  dayTwoProblemCount: Number,
-  performances: [performanceSchema]
-}
 
 // const competitionSchema = {
 //   competitionName: String,
@@ -30,6 +19,8 @@ const divisionResultSchema = {
 // }
 
 const app = express()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app
 .use(express.static(path.join(__dirname, 'public')))
@@ -54,7 +45,6 @@ app.get('/find_division_results/:competitionName/:year/:division/', (req, res) =
       // "division": req.params.division
     }, 
     function(err, division_results) {
-      console.log(division_results);
       res.render('pages/division_results', {
           division_results: division_results
       })
