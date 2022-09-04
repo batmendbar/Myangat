@@ -2,7 +2,7 @@
   min-height: 100vh;
 }
 
-#sidebar-and-container{
+.content{
   flex-grow: 1;
 }
 

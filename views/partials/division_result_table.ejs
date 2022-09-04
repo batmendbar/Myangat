@@ -1,34 +1,36 @@
-<table>
-    <tr>
-        <th>Байр</th>
-        <th>Нэр</th>
-        <th>Сургууль</th>
-        <th>Анги</th>
-        <th>Бүс</th>
-        <% for(let i = 1; i <= division_results.dayOneProblemCount; i++) { %>
-            <th> А<%= i %> </th>
-        <% } %>
-        <% for(let i = 1; i <= division_results.dayTwoProblemCount; i++) { %>
-            <th> Б<%= i %> </th>
-        <% } %>
-        <th>Нийт</th>
-        <th>Шагнал</th>
-    </tr>
-    <% division_results.performances.forEach(performance => { %>
+<div class="content">
+    <table>
         <tr>
-            <td><%= performance.rank %></td>
-            <td><%= performance.name %></td>
-            <td><%= performance.school %></td>
-            <td><%= performance.grade %></td>
-            <td><%= performance.region %></td>
-            <% performance.dayOneScores.forEach(score => { %>
-                <td><%= score %></td>
-            <% }) %>
-            <% performance.dayTwoScores.forEach(score => { %>
-                <td><%= score %></td>
-            <% }) %>
-            <td><%= performance.totalScore %></td>
-            <td><%= performance.award %></td>
+            <th>Байр</th>
+            <th>Нэр</th>
+            <th>Сургууль</th>
+            <th>Анги</th>
+            <th>Бүс</th>
+            <% for(let i = 1; i <= division_results.dayOneProblemCount; i++) { %>
+                <th> А<%= i %> </th>
+            <% } %>
+            <% for(let i = 1; i <= division_results.dayTwoProblemCount; i++) { %>
+                <th> Б<%= i %> </th>
+            <% } %>
+            <th>Нийт</th>
+            <th>Шагнал</th>
         </tr>
-    <% }) %>
-</table>
+        <% division_results.performances.forEach(performance => { %>
+            <tr>
+                <td><%= performance.rank %></td>
+                <td><%= performance.name %></td>
+                <td><%= performance.school %></td>
+                <td><%= performance.grade %></td>
+                <td><%= performance.region %></td>
+                <% performance.dayOneScores.forEach(score => { %>
+                    <td><%= score %></td>
+                <% }) %>
+                <% performance.dayTwoScores.forEach(score => { %>
+                    <td><%= score %></td>
+                <% }) %>
+                <td><%= performance.totalScore %></td>
+                <td><%= performance.award %></td>
+            </tr>
+        <% }) %>
+    </table>
+</div>
