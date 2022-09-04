@@ -3,7 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose'
 const PORT = process.env.PORT || 3000
-import {divisionResultSchema} from "./models.js"
+import {divisionResultSchema, competitionSchema} from "./models.js"
 
 
 const app = express()
@@ -20,7 +20,7 @@ app
 mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
 
 const DivisionResult = mongoose.model('divisionResult', divisionResultSchema)
-
+const Competition = mongoose.model('competition', competitionSchema)
 
 app.get('/find_division_results/:competitionName/:year/:division/', (req, res) => {
   DivisionResult.findOne({
@@ -31,6 +31,16 @@ app.get('/find_division_results/:competitionName/:year/:division/', (req, res) =
     function(err, division_results) {
       res.render('pages/division_results', {
           division_results: division_results
+      })
+    })
+})
+
+app.get('/competitions', (req, res) => {
+  Competition.find({
+    }, 
+    function(err, competitions) {
+      res.render('pages/competitions', {
+        competitions: competitions
       })
     })
 })

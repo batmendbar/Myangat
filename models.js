@@ -1,4 +1,4 @@
-export const performanceSchema = {
+const performanceSchema = {
     rank: String,
     name: String, 
     grade: String, 
@@ -15,4 +15,15 @@ export const divisionResultSchema = {
     dayOneProblemCount: Number, 
     dayTwoProblemCount: Number,
     performances: [performanceSchema]
+}
+
+const competitionInstanceSchema = {
+    year: Number,
+    date: String,
+    divisions: [String]
+}
+
+export const competitionSchema = {
+    competitionName: String,
+    instances: [competitionInstanceSchema]
 }
