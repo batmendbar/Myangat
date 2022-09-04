@@ -14,19 +14,10 @@ try {
     let dayOneProblemCount = 0;
     let dayTwoProblemCount = 0;
 
-    let headerPosition = {
-    }
+    let headerPosition = {}
 
     for (let i = 0; i < column_headers.length; i++) {
         let header = column_headers[i];
-        if (header.startsWith("А_")) {
-            headerPosition.scores = i;
-            dayOneProblemCount++;
-        }
-        if (header.startsWith("Б_")) {
-            headerPosition.scores = i;
-            dayTwoProblemCount++;
-        }
         if (header == "Байр") {
             headerPosition.rank = i;
         }
@@ -41,6 +32,20 @@ try {
         }
         if (header == "Ангилал") {
             headerPosition.division = i;
+        }
+        if (header.startsWith("А_")) {
+            headerPosition.dayOneScores = i;
+            dayOneProblemCount++;
+        }
+        if (header.startsWith("Б_")) {
+            headerPosition.dayTwoScores = i;
+            dayTwoProblemCount++;
+        }
+        if (header == "Нийт") {
+            headerPosition.totalScore = i;
+        }
+        if (header == "Шагнал") {
+            headerPosition.award = i;
         }
     }
 
@@ -62,11 +67,14 @@ try {
             school: performance[headerPosition.school],
             grade: performance[headerPosition.grade],
             region: performance[headerPosition.region],
-            dayOneScores: performance.slice(headerPosition.scores - dayOneProblemCount - dayTwoProblemCount + 1, headerPosition.scores+1),
-            dayTwoScores: [],
+            dayOneScores: performance.slice(headerPosition.dayOneScores - dayOneProblemCount+ 1, headerPosition.dayOneScores+1),
+            dayTwoScores: performance.slice(headerPosition.dayTwoScores - dayTwoProblemCount+ 1, headerPosition.dayTwoScores+1),
+            totalScore: performance[headerPosition.totalScore],
+            award: performance[headerPosition.award]
         });
     })
     const divisionResult = DivisionResult.create(division_result);
+    
 } catch (Err) {
   console.error(Err);
 }

@@ -1,8 +1,10 @@
 <% competition.instances.forEach(instance => { %>
-    <%= instance.year %>
-    <% instance.divisions.forEach(division => { %>
-        <a style="display:inline" href="/find_division_results/<%= competition.competitionName %>/<%= instance.year %>/<%= division %>/">
-            <%= division %>
-        </a>
-    <% }) %>
+    <div>
+        <%= instance.year %>
+        <% instance.divisions.forEach(division => { %>
+            <a style="display: inline;" href="/find_division_results/<%= competition.competitionName %>/<%= instance.year %>/<%= division %>/">
+                <%= division %>
+            </a>
+        <% }) %>
+    </div>
 <% }) %>

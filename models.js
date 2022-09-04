@@ -5,7 +5,9 @@ const performanceSchema = {
     school: String,
     region: String,
     dayOneScores: [Number],
-    dayTwoScores: [Number]
+    dayTwoScores: [Number],
+    totalScore: Number,
+    award: String,
 }
 
 export const divisionResultSchema = {
