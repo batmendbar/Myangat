@@ -22,6 +22,10 @@ mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongod
 const DivisionResult = mongoose.model('divisionResult', divisionResultSchema)
 const Competition = mongoose.model('competition', competitionSchema)
 
+app.get('/', (req, res) => {
+  res.render('pages/index')
+})
+
 app.get('/find_division_results/:competitionName/:year/:division/', (req, res) => {
   DivisionResult.findOne({
       "competitionName": req.params.competitionName,
@@ -41,6 +45,17 @@ app.get('/competitions', (req, res) => {
     function(err, competitions) {
       res.render('pages/competitions', {
         competitions: competitions
+      })
+    })
+})
+
+app.get('/competitions/:competitionName', (req, res) => {
+  Competition.findOne({
+      competitionName: req.params.competitionName
+    }, 
+    function(err, competition) {
+      res.render('pages/competitionPage', {
+        competition: competition
       })
     })
 })

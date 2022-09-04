@@ -1,5 +1,5 @@
 <div id="sidebar-and-container">
     <% competitions.forEach(competition => { %>
-        <p><a href="./"><%= competition.competitionName %></a></p>
+        <p><a href="/competitions/<%= competition.competitionName %>"><%= competition.competitionName %></a></p>
     <% }) %>
 </div>

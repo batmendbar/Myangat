@@ -1,38 +1,3 @@
 <div id="sidebar-and-container">
-    <% class_list.forEach(division => { %>
-        
-        <p> <%= division.competitionName %> 
-            <%= division.year %>:  
-            <%= division.division %></p>
-
-        <table>
-            <tr>
-                <th>Байр</th>
-                <th>Нэр</th>
-                <th>Сургууль</th>
-                <th>Бүс</th> 
-                <% for (let i = 1; i <= division.firstDayProblemCount; i++) { %>
-                    <th>A<%= i %> </th>
-                <% } %> 
-                <% for (let i = 1; i <= division.secondDayProblemCount; i++) { %>
-                    <th><%= i %> </th>
-                <% } %> 
-            </tr>
-
-            <% division.performances.forEach(performance => { %>
-            <tr>
-                <td><%= performance.rank %></td>
-                <td><%= performance.name %></td>
-                <td><%= performance.school %></td>
-                <td><%= performance.region %></td>
-                <% for (let i = 0; i < division.firstDayProblemCount; i++) { %>
-                    <td><%= performance.firstDayScores[i] %></td>
-                <% } %> 
-                <% for (let i = 0; i < division.secondDayProblemCount; i++) { %>
-                    <td><%= performance.secondDayScores[i] %></td>
-                <% } %> 
-            </tr>
-            <% }) %>
-        </table>
-    <% }) %>
+    <a href="./competitions/">Тэмцээнүүд</a>
 </div>
