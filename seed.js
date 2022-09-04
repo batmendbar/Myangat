@@ -1,21 +1,30 @@
 import mongoose from 'mongoose'
 import fs from 'fs'
-import {divisionResultSchema} from "./models.js"
+import {divisionResultSchema, competitionSchema} from "./models.js"
 
 mongoose.connect('mongodb+srv://batmendbar:DOPl3dIiDwipcPhF@sandbox.3asrq.mongodb.net/competition_results?retryWrites=true&w=majority');
 
 const DivisionResult = mongoose.model('divisionResult', divisionResultSchema)
+const Competition = mongoose.model('competition', competitionSchema)
 
 try {
     let data = fs.readFileSync("./dun.csv", 'Utf8').split(/\r?\n/);
-    let metadata = data[0].split(',')
-    let column_headers = data[1].split(',')
-
     let dayOneProblemCount = 0;
     let dayTwoProblemCount = 0;
-
     let headerPosition = {}
+    
+    let metadata = data.splice(0, 1)[0].split(',')
+    let division_result = {
+        competitionName: metadata[0],
+        year: metadata[1],
+        division: metadata[2],
+        dayOneProblemCount: dayOneProblemCount,
+        dayTwoProblemCount: dayTwoProblemCount,
+        performances: []
+    }
 
+    let column_headers = data.splice(0, 1)[0].split(',')
+    // Competition.updateOne({competitionName: })
     for (let i = 0; i < column_headers.length; i++) {
         let header = column_headers[i];
         if (header == "Байр") {
@@ -48,17 +57,7 @@ try {
             headerPosition.award = i;
         }
     }
-
-    let division_result = {
-        competitionName: metadata[0],
-        year: metadata[1],
-        division: metadata[2],
-        dayOneProblemCount: dayOneProblemCount,
-        dayTwoProblemCount: dayTwoProblemCount,
-        performances: []
-    }
     
-    data.splice(0, 2)
     data.forEach(performance => {
         performance = performance.split(',');
         division_result.performances.push({
