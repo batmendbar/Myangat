@@ -18,21 +18,11 @@ try {
 
     for (let i = 0; i < column_headers.length; i++) {
         let header = column_headers[i];
-        if (header == "Байр") {
-            headerPosition.rank = i;
-        }
-        if (header == "Нэр") {
-            headerPosition.name = i;
-        }
-        if (header == "Сургууль") {
-            headerPosition.school = i;
-        }
-        if (header == "Бүс") {
-            headerPosition.region = i;
-        }
-        if (header == "Ангилал") {
-            headerPosition.division = i;
-        }
+        if (header == "Байр") headerPosition.rank = i;
+        if (header == "Нэр") headerPosition.name = i;
+        if (header == "Сургууль") headerPosition.school = i;
+        if (header == "Бүс") headerPosition.region = i;
+        if (header == "Ангилал") headerPosition.division = i;
         if (header.startsWith("А_")) {
             headerPosition.dayOneScores = i;
             dayOneProblemCount++;
@@ -41,12 +31,8 @@ try {
             headerPosition.dayTwoScores = i;
             dayTwoProblemCount++;
         }
-        if (header == "Нийт") {
-            headerPosition.totalScore = i;
-        }
-        if (header == "Шагнал") {
-            headerPosition.award = i;
-        }
+        if (header == "Нийт") headerPosition.totalScore = i;
+        if (header == "Шагнал") headerPosition.award = i;
     }
 
     let division_result = {
