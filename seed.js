@@ -50,7 +50,7 @@ try {
             rank: performance[headerPosition.rank],
             name: performance[headerPosition.name],
             school: performance[headerPosition.school],
-            grade: performance[headerPosition.grade],
+            division: performance[headerPosition.division],
             region: performance[headerPosition.region],
             dayOneScores: performance.slice(headerPosition.dayOneScores - dayOneProblemCount+ 1, headerPosition.dayOneScores+1),
             dayTwoScores: performance.slice(headerPosition.dayTwoScores - dayTwoProblemCount+ 1, headerPosition.dayTwoScores+1),

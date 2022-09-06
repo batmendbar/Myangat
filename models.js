@@ -1,7 +1,7 @@
 const performanceSchema = {
     rank: String,
     name: String, 
-    grade: String, 
+    division: String, 
     school: String,
     region: String,
     dayOneScores: [Number],
