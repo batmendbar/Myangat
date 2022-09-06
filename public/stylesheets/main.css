@@ -32,5 +32,11 @@ footer {
 
 table, th, td {
   border: 1px solid black;
-  padding: 1px;
+  padding: 2px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.centered-item {
+  align-self: center;
 }
