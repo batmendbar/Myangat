@@ -7,6 +7,10 @@ body {
 }
 
 .content{
+  font-size: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
   flex-grow: 1;
 }
 
