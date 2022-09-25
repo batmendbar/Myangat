@@ -70,3 +70,7 @@ app.get('/competitions/:competitionName/:year', (req, res) => {
       })
     })
 })
+
+app.get('/admins/batmend', (req, res) => {
+  res.render('pages/batmend')
+})

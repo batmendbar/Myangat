@@ -61,3 +61,26 @@ th {
 .school_name {
   width: 200px;
 }
+
+.greeting {
+  color: #ff0000;
+  height: 80vh;
+  font-size: 100px;
+}
+
+.myangat_logo {
+  max-width: 300px;
+  height: auto;
+}
+
+.row {
+  margin-bottom: 30px;    
+}
+
+#projects {
+  padding: 30px 0px 30px 0px;
+}
+
+.personal_page{
+  font-size: 17px;
+}
