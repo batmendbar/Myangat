@@ -59,3 +59,14 @@ app.get('/competitions/:competitionName', (req, res) => {
       })
     })
 })
+
+app.get('/competitions/:competitionName/:year', (req, res) => {
+  Competition.findOne({
+      competitionName: req.params.competitionName
+    }, 
+    function(err, competition) {
+      res.render('pages/unitedDisplay', {
+        competition: competition
+      })
+    })
+})
