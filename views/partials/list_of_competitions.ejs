@@ -1,5 +1,7 @@
-<div class="content">
-    <% competitions.forEach(competition => { %>
-        <p><a href="/competitions/<%= competition.competitionName %>"><%= competition.competitionName %></a></p>
-    <% }) %>
+<div class="content big-content">
+    <% competitions.forEach(competition=> { %>
+        <p><a href="/competitions/<%= competition.competitionName %>">
+                <%= competition.competitionName %>
+            </a></p>
+        <% }) %>
 </div>

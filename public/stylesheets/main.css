@@ -6,6 +6,13 @@ body {
 	min-height: 100vh;
 }
 
+.big-content {
+	background-image: url("/medals.jpeg");
+	background-size: 500px 300px;
+	background-color: rgba(247, 241, 237, 0.95);
+	background-blend-mode: lighten;
+}
+
 .content {
 	font-size: 17px;
 	padding-left: 50px;
@@ -110,4 +117,11 @@ th {
 	display: flex;
 	justify-content: center;
 	margin: 35px;
+}
+
+.greeting {
+	background-image: url("/medals_full.jpeg");
+	background-size: 1350px 800px;
+	background-color: rgba(247, 241, 237, 0.85);
+	background-blend-mode: lighten;
 }

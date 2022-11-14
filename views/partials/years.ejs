@@ -1,20 +1,21 @@
-    <div class="content">
-        <% competition.instances.sort(function(a, b){ %>
-            <% if (a.year < b.year) return -1; %>
-            <% if (a.year > b.year) return 1; %>
-            <% return 0; %>
-        <% }).forEach(instance => { %>
-            <div class="content">
-                <%= instance.year %>
-                <% instance.divisions.sort(function(a, b) { %>
-                    <% if (a < b) return -1; %>
-                    <% if (a > b) return 1; %>
-                    <% return 0 %>
-                <% }).forEach(division => { %>
-                    <a style="display: inline;" href="/find_division_results/<%= competition.competitionName %>/<%= instance.year %>/<%= division %>/">
-                        <%= division %>
-                    </a>
-                <% }) %>
-            </div>
-        <% }) %>
-    </div>
+<div class="content big-content">
+    <% competition.instances.sort(function(a, b){ %>
+        <% if (a.year < b.year) return -1; %>
+            <% if (a.year> b.year) return 1; %>
+                <% return 0; %>
+                    <% }).forEach(instance=> { %>
+                        <div class="content">
+                            <%= instance.year %>
+                                <% instance.divisions.sort(function(a, b) { %>
+                                    <% if (a < b) return -1; %>
+                                        <% if (a> b) return 1; %>
+                                            <% return 0 %>
+                                                <% }).forEach(division=> { %>
+                                                    <a style="display: inline;"
+                                                        href="/find_division_results/<%= competition.competitionName %>/<%= instance.year %>/<%= division %>/">
+                                                        <%= division %>
+                                                    </a>
+                                                    <% }) %>
+                        </div>
+                        <% }) %>
+</div>
