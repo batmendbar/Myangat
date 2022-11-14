@@ -1,86 +1,113 @@
 body {
-  font-size: large;
+	font-size: large;
 }
 
-.entire-container{
-  min-height: 100vh;
+.entire-container {
+	min-height: 100vh;
 }
 
-.content{
-  font-size: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 10px;
-  flex-grow: 1;
+.content {
+	font-size: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 10px;
+	flex-grow: 1;
 }
 
-.flex-container{
-  display: flex;
-  justify-content: center;
+.flex-container {
+	display: flex;
+	justify-content: center;
 }
 
 .flex-container-vertical {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-header{
+header {
 	display: flex;
 	justify-content: space-around;
-	background-color: #C09F80;
+	background-color: #c09f80;
 	text-align: center;
 }
 
 footer {
-  text-align: center;
-  flex-grow: 0;
-  background-color: #C09F80;
+	text-align: center;
+	flex-grow: 0;
+	background-color: #c09f80;
 }
 
-table, th, td {
-  border: 1px solid gray;
-  padding: 3px 5px 3px 5px;
+table,
+th,
+td {
+	border: 1px solid gray;
+	padding: 3px 5px 3px 5px;
 
-  margin-bottom: 20px;
-  margin-top: 10px;
+	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 th {
-  text-align: center;
+	text-align: center;
 }
 
 .centered-item {
-  align-self: center;
+	align-self: center;
 }
 
 .score_cell {
-  width: 50px;
+	width: 50px;
 }
 
 .school_name {
-  width: 200px;
+	width: 200px;
 }
 
 .greeting {
-  color: #ff0000;
-  height: 80vh;
-  font-size: 100px;
+	margin: 0;
+	color: #ff0000;
+	height: 90vh;
+	font-size: 100px;
+	/* background-image: url("/medals.jpeg"); */
 }
 
 .myangat_logo {
-  max-width: 300px;
-  height: auto;
+	max-width: 300px;
+	height: auto;
 }
 
 .row {
-  margin-bottom: 30px;    
+	margin-bottom: 30px;
 }
 
 #projects {
-  padding: 30px 0px 30px 0px;
+	padding: 30px 0px 30px 0px;
 }
 
-.personal_page{
-  font-size: 17px;
+.personal_page {
+	font-size: 17px;
+}
+
+.nav-item {
+	margin-right: 10px;
+	margin-left: 7px;
+}
+
+.card {
+	margin: 10px;
+}
+
+#projects {
+	padding: 150px 0px 150px 0px;
+}
+
+.card-img-top {
+	height: 100px;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	margin: 35px;
 }
